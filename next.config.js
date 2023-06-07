@@ -1,14 +1,8 @@
-// @ts-check
+// next.config.js
 
-/**
- * @type {import('next').NextConfig}
- **/
-const nextConfig = {
-  output: 'export',
+module.exports = {
   basePath: '/portfolio',
-  experimental: {
-    appDir: true,
+  images: {
+    unoptimized: true,
   },
 }
-
-module.exports = nextConfig
