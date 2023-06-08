@@ -1,13 +1,14 @@
 import {
-    Box,
-    Container,
-    Flex,
-    HStack,
-    Text,
-    VStack,
-    chakra,
-    useColorModeValue
+  Box,
+  Container,
+  Flex,
+  HStack,
+  Text,
+  VStack,
+  chakra,
+  useColorModeValue,
 } from "@chakra-ui/react";
+import { itemStyle } from "../id";
 
 const milestones = [
   {
@@ -98,19 +99,16 @@ const Card = ({ id, title, description, date }: CardProps) => {
     <HStack
       flex={1}
       p={{ base: 3, sm: 6 }}
-      bg={useColorModeValue("gray.100", "gray.800")}
       spacing={5}
       rounded="lg"
       alignItems="center"
       pos="relative"
+      sx={itemStyle}
       _before={{
         content: `""`,
         w: "0",
         h: "0",
-        borderColor: `transparent ${useColorModeValue(
-          "#edf2f6",
-          "#1a202c"
-        )} transparent`,
+        borderColor: `transparent ${itemStyle.background} transparent`,
         borderStyle: "solid",
         borderWidth: borderWidthValue,
         position: "absolute",

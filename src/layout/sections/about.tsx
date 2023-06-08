@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
-import { IoLogoGithub } from "react-icons/io5";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { about } from "../id";
 
 const itemStyle = {
@@ -50,6 +50,8 @@ const Feature = ({ text, icon, iconBg, link }: FeatureProps) => {
         backdropFilter="blur(1px)"
         border="2px solid rgba(133, 74, 215, 0.1)"
         rounded={"lg"}
+        marginLeft={{ base: 4, md: 1 }}
+        marginRight={{ base: 4, md: 1 }}
       >
         <Flex
           w={8}
@@ -72,9 +74,11 @@ export default function About() {
   return (
     <Container id={about} maxW={"100%"} py={12}>
       <SimpleGrid
+        as={Card}
         paddingTop={10}
         paddingBottom={10}
-        paddingRight={{ base: 1, md: 10 }}
+        paddingLeft={10}
+        paddingRight={10}
         columns={{ base: 1, md: 2 }}
         spacingY={10}
         sx={itemStyle}
@@ -111,6 +115,12 @@ export default function About() {
             iconBg={""}
             text={"See Me on Github"}
           ></Feature>
+          <Feature
+            link={"https://github.com/210057zzh"}
+            icon={<Icon as={IoLogoLinkedin} w={5} h={5} />}
+            iconBg={""}
+            text={"See Me on LinkedIn"}
+          ></Feature>
           <Stack
             spacing={4}
             divider={
@@ -122,7 +132,10 @@ export default function About() {
         </Stack>
       </SimpleGrid>
       <SimpleGrid paddingTop={10} columns={1} spacingX={10} spacingY={10}>
-        <Card bgColor={"background"} boxShadow={"xl"}>
+        <Card
+          sx={{ ...itemStyle, background: "background_lighter" }}
+          boxShadow={"xl"}
+        >
           <CardBody>
             <Heading size={"md"}>Skills:</Heading>
             <br></br>

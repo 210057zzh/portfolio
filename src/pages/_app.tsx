@@ -11,7 +11,8 @@ const colors = {
   primary: "#90c6af",
   secondary: "#5691eb",
   highlight: "#cf81ee",
-  background:"#bbb8b8"
+  background: "#bbb8b8",
+  background_lighter: "rgba(184, 187, 186, 0.4)",
 };
 
 export const theme = extendTheme({ colors });
