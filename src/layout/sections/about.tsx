@@ -15,9 +15,9 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { about } from "../id";
 import { ReactElement } from "react";
-import { IoLogoGithub, IoLogoBitcoin, IoSearchSharp } from "react-icons/io5";
+import { IoLogoGithub } from "react-icons/io5";
+import { about } from "../id";
 
 const itemStyle = {
   background: "rgba(67, 185, 204, 0.4)",
