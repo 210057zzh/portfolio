@@ -24,17 +24,25 @@ import { useRouter } from "next/router";
 import Bunny from "../Icons/bunny";
 import { about } from "../id";
 
-interface FeatureProps {
-  text: string;
-  iconBg: string;
-  icon?: ReactElement;
-}
+const itemStyle = {
+  background: "rgba(67, 185, 204, 0.32)",
+  boxShadow: "lg",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(67, 185, 204, 0.3)",
+};
 
 export default function About() {
   const router = useRouter();
   return (
     <Container id={about} maxW={"2xl"} py={12}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacingY={10}>
+      <SimpleGrid
+        paddingTop={10}
+        paddingBottom={10}
+        paddingRight={{ base: 1, md: 10 }}
+        columns={{ base: 1, md: 2 }}
+        spacingY={10}
+        sx={itemStyle}
+      >
         <Flex flexDirection={"row"} alignItems={"center"}>
           <Image
             marginLeft={"auto"}
