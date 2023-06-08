@@ -5,7 +5,9 @@ import {
   Flex,
   FlexProps,
   Heading,
+  Icon,
   Image,
+  Link,
   SimpleGrid,
   Stack,
   StackDivider,
@@ -14,12 +16,55 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { about } from "../id";
+import { ReactElement } from "react";
+import { IoLogoGithub, IoLogoBitcoin, IoSearchSharp } from "react-icons/io5";
 
 const itemStyle = {
   background: "rgba(67, 185, 204, 0.4)",
   boxShadow: "xl",
   backdropFilter: "blur(1px)",
   border: "2px solid rgba(67, 185, 204, 0.3)",
+};
+
+interface FeatureProps {
+  text: string;
+  iconBg: string;
+  icon?: ReactElement;
+  link: string;
+}
+
+const Feature = ({ text, icon, iconBg, link }: FeatureProps) => {
+  return (
+    <Link
+      href={link}
+      style={{ textDecoration: "none" }}
+      _focus={{ boxShadow: "none" }}
+      isExternal
+    >
+      <Stack
+        direction={"row"}
+        align={"center"}
+        //sx={itemStyle}
+        bg="rgba(133, 74, 215, 0.4)"
+        boxShadow="xl"
+        backdropFilter="blur(1px)"
+        border="2px solid rgba(133, 74, 215, 0.1)"
+        rounded={"lg"}
+      >
+        <Flex
+          w={8}
+          h={8}
+          align={"center"}
+          justify={"center"}
+          rounded={"full"}
+          bg={iconBg}
+        >
+          {icon}
+        </Flex>
+        <Text fontWeight={600}>{text}</Text>
+      </Stack>
+    </Link>
+  );
 };
 
 export default function About() {
@@ -49,7 +94,7 @@ export default function About() {
           <Heading textAlign={{ base: "center", md: "left" }}>
             ZHIHENG ZHANG
           </Heading>
-          <Text color={"gray.500"} fontSize={"lg"}>
+          <Text color={"gray.800"} fontSize={"lg"}>
             I&apos;m a CS student that loves gaming and my rabbits. <br />
             You can find me either working on my laptop or doing house chores
             for my family.
@@ -60,6 +105,12 @@ export default function About() {
             <Text as="b">Computer Science</Text> at
             <Text as="b"> University of Southern California</Text>
           </div>
+          <Feature
+            link={"https://github.com/210057zzh"}
+            icon={<Icon as={IoLogoGithub} w={5} h={5} />}
+            iconBg={""}
+            text={"See Me on Github"}
+          ></Feature>
           <Stack
             spacing={4}
             divider={
