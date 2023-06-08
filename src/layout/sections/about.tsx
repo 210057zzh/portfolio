@@ -112,7 +112,7 @@ function SkillItem({ imageSrc, text, ...rest }: SkillItemProps) {
       mx="4"
       borderRadius="lg"
       role="group"
-      cursor="pointer"
+      cursor="cursor"
       _hover={{
         bg: "secondary",
         color: "white",
