@@ -1,40 +1,31 @@
 import {
-  Container,
-  SimpleGrid,
-  Image,
-  Flex,
-  Heading,
-  Text,
-  Stack,
-  StackDivider,
-  Icon,
-  useColorModeValue,
-  HStack,
   Card,
   CardBody,
-  CardHeader,
+  Container,
+  Flex,
+  FlexProps,
+  Heading,
+  Image,
+  SimpleGrid,
+  Stack,
+  StackDivider,
+  Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import {
-  IoAnalyticsSharp,
-  IoLogoBitcoin,
-  IoSearchSharp,
-} from "react-icons/io5";
-import { ReactElement } from "react";
 import { useRouter } from "next/router";
-import Bunny from "../Icons/bunny";
 import { about } from "../id";
 
 const itemStyle = {
-  background: "rgba(67, 185, 204, 0.32)",
-  boxShadow: "lg",
-  backdropFilter: "blur(5px)",
-  border: "1px solid rgba(67, 185, 204, 0.3)",
+  background: "rgba(67, 185, 204, 0.4)",
+  boxShadow: "xl",
+  backdropFilter: "blur(1px)",
+  border: "2px solid rgba(67, 185, 204, 0.3)",
 };
 
 export default function About() {
   const router = useRouter();
   return (
-    <Container id={about} maxW={"2xl"} py={12}>
+    <Container id={about} maxW={"100%"} py={12}>
       <SimpleGrid
         paddingTop={10}
         paddingBottom={10}
@@ -63,6 +54,12 @@ export default function About() {
             You can find me either working on my laptop or doing house chores
             for my family.
           </Text>
+          <div>
+            <Heading size={"md"}>Education:</Heading>
+            <Text as="b">B.S</Text> and <Text as="b">M.S</Text> in{" "}
+            <Text as="b">Computer Science</Text> at
+            <Text as="b"> University of Southern California</Text>
+          </div>
           <Stack
             spacing={4}
             divider={
@@ -73,29 +70,57 @@ export default function About() {
           ></Stack>
         </Stack>
       </SimpleGrid>
-      <SimpleGrid
-        paddingTop={10}
-        columns={{ base: 1, md: 2 }}
-        spacingX={10}
-        spacingY={10}
-      >
-        <Card bgColor={"background"}>
+      <SimpleGrid paddingTop={10} columns={1} spacingX={10} spacingY={10}>
+        <Card bgColor={"background"} boxShadow={"xl"}>
           <CardBody>
-            <Heading size={"md"}>Education:</Heading>
-            <Text as="b">B.S</Text> and <Text as="b">M.S</Text> in{" "}
-            <Text as="b">Computer Science</Text> at
-            <Text as="b"> University of Southern California</Text>
-          </CardBody>
-        </Card>
-        <Card bgColor={"background"}>
-          <CardBody>
-            <Heading size={"md"}>Education:</Heading>
-            <Text as="b">B.S</Text> and <Text as="b">M.S</Text> in{" "}
-            <Text as="b">Computer Science</Text> at
-            <Text as="b"> University of Southern California</Text>
+            <Heading size={"md"}>Skills:</Heading>
+            <br></br>
+            <SimpleGrid columns={{ base: 1, md: 2 }}>
+              <SkillItem
+                imageSrc={`${router.basePath}/icons/easter-bunny.png`}
+                text={"bunny skill"}
+              ></SkillItem>
+              <SkillItem
+                imageSrc={`${router.basePath}/icons/easter-bunny.png`}
+                text={"bunny skill"}
+              ></SkillItem>
+              <SkillItem
+                imageSrc={`${router.basePath}/icons/easter-bunny.png`}
+                text={"bunny skill"}
+              ></SkillItem>
+            </SimpleGrid>
           </CardBody>
         </Card>
       </SimpleGrid>
     </Container>
+  );
+}
+
+interface SkillItemProps extends FlexProps {
+  imageSrc: string;
+  text: string;
+}
+
+function SkillItem({ imageSrc, text, ...rest }: SkillItemProps) {
+  return (
+    <Flex
+      sx={itemStyle}
+      marginBottom={5}
+      bg="secondary"
+      align="center"
+      p="4"
+      mx="4"
+      borderRadius="lg"
+      role="group"
+      cursor="pointer"
+      _hover={{
+        bg: "secondary",
+        color: "white",
+      }}
+      {...rest}
+    >
+      <Image src={imageSrc} alt={text} width={10} height={10}></Image>
+      <Text>{text}</Text>
+    </Flex>
   );
 }
