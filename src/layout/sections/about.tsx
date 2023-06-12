@@ -1,9 +1,7 @@
 import {
   Card,
-  CardBody,
   Container,
   Flex,
-  FlexProps,
   Heading,
   Icon,
   Image,
@@ -12,12 +10,12 @@ import {
   Stack,
   StackDivider,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
-import { about } from "../id";
+import { aboutSectionId } from "../id";
 
 const itemStyle = {
   background: "rgba(67, 185, 204, 0.4)",
@@ -72,7 +70,7 @@ const Feature = ({ text, icon, iconBg, link }: FeatureProps) => {
 export default function About() {
   const router = useRouter();
   return (
-    <Container id={about} maxW={"100%"} py={12}>
+    <Container id={aboutSectionId} maxW={"100%"} py={12}>
       <SimpleGrid
         as={Card}
         paddingTop={10}
@@ -131,60 +129,8 @@ export default function About() {
           ></Stack>
         </Stack>
       </SimpleGrid>
-      <SimpleGrid paddingTop={10} columns={1} spacingX={10} spacingY={10}>
-        <Card
-          sx={{ ...itemStyle, background: "background_lighter" }}
-          boxShadow={"xl"}
-        >
-          <CardBody>
-            <Heading size={"md"}>Skills:</Heading>
-            <br></br>
-            <SimpleGrid columns={{ base: 1, md: 2 }}>
-              <SkillItem
-                imageSrc={`${router.basePath}/icons/easter-bunny.png`}
-                text={"bunny skill"}
-              ></SkillItem>
-              <SkillItem
-                imageSrc={`${router.basePath}/icons/easter-bunny.png`}
-                text={"bunny skill"}
-              ></SkillItem>
-              <SkillItem
-                imageSrc={`${router.basePath}/icons/easter-bunny.png`}
-                text={"bunny skill"}
-              ></SkillItem>
-            </SimpleGrid>
-          </CardBody>
-        </Card>
-      </SimpleGrid>
     </Container>
   );
 }
 
-interface SkillItemProps extends FlexProps {
-  imageSrc: string;
-  text: string;
-}
 
-function SkillItem({ imageSrc, text, ...rest }: SkillItemProps) {
-  return (
-    <Flex
-      sx={itemStyle}
-      marginBottom={5}
-      bg="secondary"
-      align="center"
-      p="4"
-      mx="4"
-      borderRadius="lg"
-      role="group"
-      cursor="cursor"
-      _hover={{
-        bg: "secondary",
-        color: "white",
-      }}
-      {...rest}
-    >
-      <Image src={imageSrc} alt={text} width={10} height={10}></Image>
-      <Text>{text}</Text>
-    </Flex>
-  );
-}

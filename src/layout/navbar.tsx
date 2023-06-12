@@ -1,21 +1,21 @@
-import React, { ReactNode, useEffect } from "react";
 import {
-  IconButton,
   Box,
+  BoxProps,
   CloseButton,
-  Flex,
-  Icon,
-  useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
-  Text,
-  useDisclosure,
-  BoxProps,
+  Flex,
   FlexProps,
+  Icon,
+  IconButton,
+  Link,
+  Text,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { FiTrendingUp, FiMenu } from "react-icons/fi";
+import { ReactNode, useEffect } from "react";
 import { IconType } from "react-icons";
+import { FiCalendar, FiMenu } from "react-icons/fi";
 
 import Bunny from "./Icons/bunny";
 
@@ -25,7 +25,7 @@ interface LinkItemProps {
 }
 const LinkItems: Array<LinkItemProps> = [
   { name: "About", icon: Bunny },
-  { name: "Trending", icon: FiTrendingUp },
+  { name: "Experiences", icon: FiCalendar },
 ];
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {

@@ -1,9 +1,8 @@
 import "@/styles/globals.css";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 
 // 1. Import the extendTheme function
-import { extendTheme } from "@chakra-ui/react";
 import Navbar from "@/layout/navbar";
 
 // 2. Extend the theme to include custom colors, fonts, etc

@@ -1,45 +1,82 @@
 import {
   Box,
+  CardBody,
   Container,
   Flex,
+  FlexProps,
   HStack,
+  Heading,
+  ListItem,
+  SimpleGrid,
   Text,
+  UnorderedList,
   VStack,
   chakra,
   useColorModeValue,
+  Image,
+  Card,
 } from "@chakra-ui/react";
-import { itemStyle } from "../id";
+import { experienceSectionId, itemStyle } from "../id";
+import { useRouter } from "next/router";
 
 const milestones = [
   {
     id: 1,
-    date: "MARCH 30, 2022",
-    title: "Chakra Hackathon",
-    description: `Winner of first ever ChakraUI Hackathon. On sait depuis longtemps que travailler avec du texte lisible et contenant du sens.`,
+    date: "May 21, 2023 - Present",
+    title: "Software Engineer Intern",
+    company: "Amazon Luna",
+    companyLogoSrc: "amazon.svg",
+    descriptions: [
+      "Create index service on game logs to replace previously manual process",
+      "Create game log download service to replace previously manual process",
+      "Saves hours of customer and developer time",
+    ],
   },
   {
     id: 2,
-    date: "July 30, 2021",
-    title: "Open Source, first contribution",
-    description: `Fixing a typo, to fix a bug, contributing to Open Source and collaborating to improve technology for everyone, Ahmad's world changed again!.`,
+    date: "August 10, 2021 - May 12, 2023",
+    title: "Teaching Assistant - CSCI 356 (Introduction to Computer Systems)",
+    company: "USC",
+    companyLogoSrc: "amazon.svg",
+    descriptions: [
+      "Teaching low-level topics such as binary representation, assembly language, dynamic memory allocation.",
+      "Scanning and grading exams",
+    ],
   },
   {
     id: 3,
-    date: "July 30, 2018",
-    title: "Freelancing, started working for myself",
-    description:
-      "Ahmad starts his own business consulting for companies as a fullstack developer. Clients include UK Government departments, UK banks, global fintechs and startups.",
+    date: "May 10, 2021 - July 10, 2021",
+    title:
+      "Teaching Assistant - CSCI 104 (Data Structures and Object-Oriented Design)",
+    company: "USC",
+    companyLogoSrc: "amazon.svg",
+    descriptions: [
+      "Teaching common data structures (AVL trees, stack, queue, and hash maps), object-oriented programming, back-tracking, common graph algorithms (BFS, DFS), and more",
+      "Holding office hours to help students",
+    ],
+  },
+  {
+    id: 4,
+    date: "Jan 10, 2021 - May 10, 2021",
+    title: "Teaching Assistant - CSCI 103 (Introduction to Programming)",
+    company: "USC",
+    companyLogoSrc: "amazon.svg",
+    descriptions: [
+      "Teaching memory management, object-oriented programming, recursion, and more",
+      "Holding office hours to reinforce course content and assist students with programming assignments",
+    ],
   },
 ];
 
 const Experience = () => {
   const isMobile = true;
   const isDesktop = false;
+  const router = useRouter();
 
   return (
-    <Container maxWidth="7xl" p={{ base: 2, sm: 10 }}>
+    <Container id={experienceSectionId} maxWidth="7xl" p={{ base: 2, sm: 10 }}>
       <chakra.h3 fontSize="4xl" fontWeight="bold" mb={18} textAlign="center">
-        Milestones
+        Experiences
       </chakra.h3>
       {milestones.map((milestone) => (
         <Flex key={milestone.id} mb="10px">
@@ -48,7 +85,7 @@ const Experience = () => {
             <>
               <EmptyCard />
               <LineWithDot />
-              <Card {...milestone} />
+              <ExpereinceItem {...milestone} />
             </>
           )}
 
@@ -56,39 +93,73 @@ const Experience = () => {
           {isMobile && (
             <>
               <LineWithDot />
-              <Card {...milestone} />
+              <ExpereinceItem {...milestone} />
             </>
           )}
 
           {/* Desktop view(right card) */}
           {isDesktop && milestone.id % 2 !== 0 && (
             <>
-              <Card {...milestone} />
+              <ExpereinceItem {...milestone} />
 
               <LineWithDot />
               <EmptyCard />
             </>
           )}
         </Flex>
-      ))}
+      ))}{" "}
+      <Card
+        marginTop={10}
+        sx={{ ...itemStyle, background: "background_lighter" }}
+        boxShadow={"xl"}
+      >
+        <CardBody>
+          <Heading size={"md"}>Skills:</Heading>
+          <br></br>
+          <SimpleGrid columns={{ base: 2, md: 4 }}>
+            <SkillItem
+              imageSrc={`${router.basePath}/icons/easter-bunny.png`}
+              text={"bunny skill"}
+            ></SkillItem>
+            <SkillItem
+              imageSrc={`${router.basePath}/icons/easter-bunny.png`}
+              text={"bunny skill"}
+            ></SkillItem>
+            <SkillItem
+              imageSrc={`${router.basePath}/icons/easter-bunny.png`}
+              text={"bunny skill"}
+            ></SkillItem>
+          </SimpleGrid>
+        </CardBody>
+      </Card>
     </Container>
   );
 };
 
-interface CardProps {
+interface ExperienceItemProps {
   id: number;
   title: string;
-  description: string;
+  company: string;
+  companyLogoSrc: string;
+  descriptions: string[];
   date: string;
 }
 
-const Card = ({ id, title, description, date }: CardProps) => {
+const ExpereinceItem = ({
+  id,
+  title,
+  company,
+  companyLogoSrc,
+  descriptions,
+  date,
+}: ExperienceItemProps) => {
   // For even id show card on left side
   // For odd id show card on right side
   const isEvenId = id % 2 == 0;
   let borderWidthValue;
   let leftValue;
   let rightValue;
+  const router = useRouter();
 
   const isMobile = true;
   leftValue = "-15px";
@@ -118,7 +189,7 @@ const Card = ({ id, title, description, date }: CardProps) => {
       }}
     >
       <Box>
-        <Text fontSize="lg" color={isEvenId ? "teal.400" : "blue.400"}>
+        <Text fontSize="xl" color={isEvenId ? "teal.400" : "blue.400"}>
           {date}
         </Text>
 
@@ -126,7 +197,27 @@ const Card = ({ id, title, description, date }: CardProps) => {
           <chakra.h1 fontSize="2xl" lineHeight={1.2} fontWeight="bold" w="100%">
             {title}
           </chakra.h1>
-          <Text fontSize="md">{description}</Text>
+          <Flex direction={"row"} align={"flex-start"} w="100%">
+            <Image
+              alt={companyLogoSrc}
+              height={"8"}
+              paddingLeft={5}
+              paddingRight={2}
+              src={`${router.basePath}/images/${companyLogoSrc}`}
+            ></Image>
+            <Text fontStyle={"italic"} fontSize={"lg"} textAlign={"left"}>
+              {company}
+            </Text>
+          </Flex>
+          <UnorderedList>
+            {descriptions.map((description, index) => {
+              return (
+                <ListItem fontSize={"md"} key={index}>
+                  {description}
+                </ListItem>
+              );
+            })}
+          </UnorderedList>
         </VStack>
       </Box>
     </HStack>
@@ -180,5 +271,40 @@ const EmptyCard = () => {
     ></Box>
   );
 };
+
+interface SkillItemProps extends FlexProps {
+  imageSrc: string;
+  text: string;
+}
+
+function SkillItem({ imageSrc, text, ...rest }: SkillItemProps) {
+  return (
+    <Flex
+      sx={itemStyle}
+      marginBottom={5}
+      bg="secondary"
+      align="center"
+      p="4"
+      mx="4"
+      borderRadius="lg"
+      role="group"
+      cursor="cursor"
+      _hover={{
+        bg: "secondary",
+        color: "white",
+      }}
+      {...rest}
+    >
+      <Image
+        src={imageSrc}
+        alt={text}
+        width={10}
+        height={10}
+        marginRight={4}
+      ></Image>
+      <Text>{text}</Text>
+    </Flex>
+  );
+}
 
 export default Experience;

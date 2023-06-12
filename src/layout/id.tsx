@@ -1,4 +1,6 @@
-export const about = "About";
+export const aboutSectionId = "About";
+
+export const experienceSectionId = "Experiences";
 
 export const itemStyle = {
   background: "rgba(67, 185, 204, 0.32)",
