@@ -36,8 +36,8 @@ const milestones = [
     id: 2,
     date: "August 10, 2021 - May 12, 2023",
     title: "Teaching Assistant - CSCI 356 (Introduction to Computer Systems)",
-    company: "USC",
-    companyLogoSrc: "amazon.svg",
+    company: "University of Southern California",
+    companyLogoSrc: "usc.png",
     descriptions: [
       "Teaching low-level topics such as binary representation, assembly language, dynamic memory allocation.",
       "Scanning and grading exams",
@@ -48,8 +48,8 @@ const milestones = [
     date: "May 10, 2021 - July 10, 2021",
     title:
       "Teaching Assistant - CSCI 104 (Data Structures and Object-Oriented Design)",
-    company: "USC",
-    companyLogoSrc: "amazon.svg",
+    company: "University of Southern California",
+    companyLogoSrc: "usc.png",
     descriptions: [
       "Teaching common data structures (AVL trees, stack, queue, and hash maps), object-oriented programming, back-tracking, common graph algorithms (BFS, DFS), and more",
       "Holding office hours to help students",
@@ -59,8 +59,8 @@ const milestones = [
     id: 4,
     date: "Jan 10, 2021 - May 10, 2021",
     title: "Teaching Assistant - CSCI 103 (Introduction to Programming)",
-    company: "USC",
-    companyLogoSrc: "amazon.svg",
+    company: "University of Southern California",
+    companyLogoSrc: "usc.png",
     descriptions: [
       "Teaching memory management, object-oriented programming, recursion, and more",
       "Holding office hours to reinforce course content and assist students with programming assignments",
@@ -199,15 +199,13 @@ const ExpereinceItem = ({
           </chakra.h1>
           <Flex direction={"row"} align={"flex-start"} w="100%">
             <Image
-              alt={companyLogoSrc}
-              height={"8"}
+              alt={company}
+              height={"7"}
+              marginTop={2}
               paddingLeft={5}
               paddingRight={2}
               src={`${router.basePath}/images/${companyLogoSrc}`}
             ></Image>
-            <Text fontStyle={"italic"} fontSize={"lg"} textAlign={"left"}>
-              {company}
-            </Text>
           </Flex>
           <UnorderedList>
             {descriptions.map((description, index) => {
