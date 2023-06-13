@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   Container,
   Flex,
@@ -9,7 +10,7 @@ import {
   SimpleGrid,
   Stack,
   StackDivider,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
@@ -78,18 +79,45 @@ export default function About() {
         paddingRight={10}
         columns={{ base: 1, md: 2 }}
         spacingY={10}
+        spacingX={10}
         sx={itemStyle}
       >
         <Flex flexDirection={"row"} alignItems={"center"}>
-          <Image
+          <Box
             marginLeft={"auto"}
             marginRight={"auto"}
-            rounded={"md"}
-            alt={"feature image"}
-            src={`${router.basePath}/images/me.png`}
-            objectFit="cover"
-            maxW={{ base: "100%", sm: "200px" }}
-          />
+            marginTop={-3}
+            marginBottom={10}
+            pos={"relative"}
+            height={"230px"}
+            _after={{
+              transition: "all .3s ease",
+              content: '""',
+              w: "full",
+              h: "full",
+              pos: "absolute",
+              top: 5,
+              left: 0,
+              backgroundImage: `${router.basePath}/images/me.png`,
+              filter: "blur(15px)",
+              zIndex: -1,
+            }}
+            _groupHover={{
+              _after: {
+                filter: "blur(20px)",
+              },
+            }}
+          >
+            <Image
+              marginLeft={"auto"}
+              marginRight={"auto"}
+              rounded={"md"}
+              alt={"feature image"}
+              src={`${router.basePath}/images/me.png`}
+              objectFit="cover"
+              maxW={{ base: "100%", sm: "200px" }}
+            />
+          </Box>
         </Flex>
         <Stack spacing={4}>
           <Heading textAlign={{ base: "center", md: "left" }}>
