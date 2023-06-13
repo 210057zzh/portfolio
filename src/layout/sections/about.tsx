@@ -9,8 +9,7 @@ import {
   SimpleGrid,
   Stack,
   StackDivider,
-  Text,
-  useColorModeValue
+  Text
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
@@ -121,16 +120,10 @@ export default function About() {
           ></Feature>
           <Stack
             spacing={4}
-            divider={
-              <StackDivider
-                borderColor={useColorModeValue("gray.100", "gray.700")}
-              />
-            }
+            divider={<StackDivider borderColor={"gray.100"} />}
           ></Stack>
         </Stack>
       </SimpleGrid>
     </Container>
   );
 }
-
-

@@ -10,8 +10,7 @@ import {
   IconButton,
   Link,
   Text,
-  useColorModeValue,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/react";
 import { ReactNode, useEffect } from "react";
 import { IconType } from "react-icons";
@@ -40,7 +39,7 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
     );
   }, []);
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box minH="100vh" bg={"gray.100"}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -74,9 +73,9 @@ interface SidebarProps extends BoxProps {
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
-      bg={useColorModeValue("primary", "gray.900")}
+      bg={"primary"}
       borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      borderRightColor={"gray.200"}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
@@ -171,9 +170,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       width={"100%"}
       height={"49"}
       alignItems="center"
-      bg={useColorModeValue("primary", "gray.900")}
+      bg={"primary"}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue("teal.400", "gray.700")}
+      borderBottomColor={"teal.400"}
       justifyContent="flex-start"
       {...rest}
     >

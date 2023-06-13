@@ -1,5 +1,5 @@
 import About from "@/layout/sections/about";
-import Experience from "@/layout/sections/experience";
+import Experience from "@/layout/sections/experiences";
 import { VStack } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 
