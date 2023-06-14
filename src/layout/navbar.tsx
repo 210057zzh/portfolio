@@ -193,6 +193,3 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
     </Flex>
   );
 };
-function BsPersonWorkspace(props: IconBaseProps): Element {
-  throw new Error("Function not implemented.");
-}
