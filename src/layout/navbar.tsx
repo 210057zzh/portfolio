@@ -10,21 +10,24 @@ import {
   IconButton,
   Link,
   Text,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 import { ReactNode, useEffect } from "react";
 import { IconType } from "react-icons";
 import { FiCalendar, FiMenu } from "react-icons/fi";
+import { MdWork } from "react-icons/md";
 
 import Bunny from "./Icons/bunny";
+import { projectsSectionId } from "./id";
 
 interface LinkItemProps {
   name: string;
-  icon: IconType;
+  icon: any;
 }
 const LinkItems: Array<LinkItemProps> = [
   { name: "About", icon: Bunny },
   { name: "Experiences", icon: FiCalendar },
+  { name: projectsSectionId, icon: MdWork },
 ];
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -190,3 +193,6 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
     </Flex>
   );
 };
+function BsPersonWorkspace(props: IconBaseProps): Element {
+  throw new Error("Function not implemented.");
+}
