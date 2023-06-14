@@ -13,7 +13,7 @@ import {
   Text,
   UnorderedList,
   VStack,
-  chakra
+  chakra,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { experienceSectionId, itemStyle } from "../id";
@@ -286,10 +286,6 @@ function SkillItem({ imageSrc, text, ...rest }: SkillItemProps) {
       borderRadius="lg"
       role="group"
       cursor="cursor"
-      _hover={{
-        bg: "secondary",
-        color: "white",
-      }}
       {...rest}
     >
       <Image

@@ -50,6 +50,7 @@ const Feature = ({ text, icon, iconBg, link }: FeatureProps) => {
         rounded={"lg"}
         marginLeft={{ base: 4, md: 1 }}
         marginRight={{ base: 4, md: 1 }}
+        _hover={{ bg: "hover", border: "2px solid hover" }}
       >
         <Flex
           w={8}

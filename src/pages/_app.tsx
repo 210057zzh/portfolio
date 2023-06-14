@@ -9,9 +9,10 @@ import Navbar from "@/layout/navbar";
 const colors = {
   primary: "#90c6af",
   secondary: "#5691eb",
-  highlight: "#cf81ee",
+  highlight: "rgba(133, 74, 215)",
   background: "#bbb8b8",
   background_lighter: "rgba(184, 187, 186, 0.4)",
+  hover: "teal.400",
 };
 
 export const theme = extendTheme({ colors });

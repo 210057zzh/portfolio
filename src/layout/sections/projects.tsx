@@ -6,30 +6,22 @@ import {
   TabPanel,
   Card,
   CardHeader,
+  SimpleGrid,
+  chakra,
+  Box,
 } from "@chakra-ui/react";
 import { itemStyle } from "../id";
+import ComputerGraphics from "./projects/computer_graphics";
 
 export default function Projects() {
   return (
-    <Card
-      sx={{ ...itemStyle, background: "background_lighter" }}
-      boxShadow={"xl"}
-      width={{ base: "87%", md: "88%" }}
-    >
-      <Tabs variant="soft-rounded" isFitted>
-        <TabList marginTop={2}>
-          <Tab _selected={{ bg: "primary" }}>Tab 1</Tab>
-          <Tab _selected={{ bg: "primary" }}>Tab 2</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>
-            <p>one!</p>
-          </TabPanel>
-          <TabPanel>
-            <p>two!</p>
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-    </Card>
+    <Box width={{ base: "87%", md: "88%" }} bg="transparent" border="none">
+      <chakra.h3 fontSize="4xl" fontWeight="bold" mb={18} textAlign="center">
+        Projects
+      </chakra.h3>
+      <SimpleGrid columns={1}>
+        <ComputerGraphics></ComputerGraphics>
+      </SimpleGrid>
+    </Box>
   );
 }
