@@ -27,9 +27,7 @@ export default function ComputerGraphics() {
       </Heading>
       <SimpleGrid px={10} columns={{ base: 1, md: 3 }} spacingX={5}>
         {projects.map((project, index) => {
-          return (
-            <ProjectItem key={index} id={index} {...project}></ProjectItem>
-          );
+          return <ProjectItem key={index} {...project}></ProjectItem>;
         })}
       </SimpleGrid>
     </Box>

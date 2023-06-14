@@ -35,12 +35,11 @@ export default function ProjectItem({
   description,
   images,
   video,
-  id,
 }: ProjectItemProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Center py={12} id={`${id}`} onClick={onOpen}>
+    <Center py={12} onClick={onOpen}>
       <Box
         role={"group"}
         p={6}
