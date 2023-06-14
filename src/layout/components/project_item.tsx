@@ -82,6 +82,7 @@ export default function ProjectItem({
             width={282}
             objectFit={"cover"}
             src={thumbnail}
+            alt={name}
           />
         </Box>
         <Stack pt={5} align={"center"}>
