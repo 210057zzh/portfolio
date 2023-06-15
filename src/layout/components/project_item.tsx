@@ -1,4 +1,5 @@
 import {
+  Card,
   Box,
   Center,
   Heading,
@@ -14,7 +15,13 @@ import {
   ModalBody,
   ModalFooter,
   Button,
+  SimpleGrid,
+  AspectRatio,
 } from "@chakra-ui/react";
+import { itemStyle } from "../id";
+import ReactMarkdown from "react-markdown";
+import ChakraUIRenderer from "chakra-ui-markdown-renderer";
+import { useEffect, useState } from "react";
 
 const IMAGE = "/portfolio/images/me.png";
 
@@ -37,6 +44,18 @@ export default function ProjectItem({
   video,
 }: ProjectItemProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [descriptionText, SetDescriptionText] = useState("");
+  useEffect(() => {
+    fetch(description)
+      .then((r) => r.text())
+      .then((text) => {
+        console.log(text);
+        SetDescriptionText(text);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   return (
     <Center py={12} onClick={onOpen}>
@@ -88,22 +107,44 @@ export default function ProjectItem({
           <Heading fontSize={"2xl"} fontFamily={"body"} fontWeight={500}>
             {name}
           </Heading>
-          <Text fontSize={"md"}>{shortDescription}</Text>
+          <Text textDecoration={"underline"} fontSize={"md"}>
+            {shortDescription}
+          </Text>
         </Stack>
       </Box>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal
+        size={{ base: "2xl", md: "3xl", lg: "5xl" }}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
         <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody></ModalBody>
+          <Card sx={itemStyle}>
+            <ModalHeader>
+              <Heading textAlign={"center"} marginX={"auto"}>
+                {name}
+              </Heading>
+            </ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <SimpleGrid column={1} spacing={10}>
+                {video && (
+                  <AspectRatio ratio={16 / 9}>
+                    <iframe title={name} src={video} allowFullScreen />
+                  </AspectRatio>
+                )}
+                <ReactMarkdown components={ChakraUIRenderer()} skipHtml>
+                  {descriptionText}
+                </ReactMarkdown>
+              </SimpleGrid>
+            </ModalBody>
 
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={onClose}>
+                Close
+              </Button>
+            </ModalFooter>
+          </Card>
         </ModalContent>
       </Modal>
     </Center>

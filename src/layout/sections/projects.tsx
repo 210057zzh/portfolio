@@ -1,16 +1,9 @@
 import {
-  TabList,
-  TabPanels,
-  Tabs,
-  Tab,
-  TabPanel,
-  Card,
-  CardHeader,
-  SimpleGrid,
-  chakra,
   Box,
+  SimpleGrid,
+  chakra
 } from "@chakra-ui/react";
-import { itemStyle, projectsSectionId } from "../id";
+import { projectsSectionId } from "../id";
 import ComputerGraphics from "./projects/computer_graphics";
 
 export default function Projects() {

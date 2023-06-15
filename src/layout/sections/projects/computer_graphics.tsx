@@ -7,15 +7,19 @@ import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 const projects: ProjectItemProps[] = [
   {
     name: "bunny_engine",
-    shortDescription: "An apple pie, very good",
+    shortDescription:
+      "Native Windows Game Engine Written in C++, built with DirectX11",
     thumbnail: `/portfolio/images/me.png`,
-    description: "a very gppd apple",
+    description: "/portfolio/project_descriptions/bunny_engine.md",
+    video: "https://www.youtube.com/embed/bQ4dePQef2M",
   },
   {
-    name: "Apple",
-    shortDescription: "An apple pie, very good",
+    name: "bunny_engine",
+    shortDescription:
+      "Native Windows Game Engine Written in C++, built with DirectX11",
     thumbnail: `/portfolio/images/me.png`,
-    description: "a very gppd apple",
+    description: "/portfolio/project_descriptions/bunny_engine.md",
+    video: "https://www.youtube.com/embed/bQ4dePQef2M",
   },
 ];
 
