@@ -8,6 +8,7 @@ import {
   HStack,
   Heading,
   Image,
+  ImageProps,
   ListItem,
   SimpleGrid,
   Text,
@@ -67,6 +68,44 @@ const milestones = [
   },
 ];
 
+const skills: SkillItemProps[] = [
+  {
+    imageSrc: "/portfolio/icons/skills/CPlusPlus.svg",
+    text: "C++",
+    alt: "C++",
+  },
+  {
+    imageSrc: "/portfolio/icons/skills/AWS.svg",
+    text: "",
+    width: 60,
+    alt: "AWS",
+  },
+  {
+    imageSrc: "/portfolio/icons/skills/DirectX.svg",
+    text: "",
+    width: 150,
+    alt: "DirectX",
+  },
+  {
+    imageSrc: "/portfolio/icons/skills/OpenGL.svg",
+    text: "",
+    width: 150,
+    alt: "OpenGL",
+  },
+  {
+    imageSrc: "/portfolio/icons/skills/Firebase.svg",
+    text: "",
+    width: 150,
+    alt: "Firebase",
+  },
+  {
+    imageSrc: "/portfolio/icons/skills/NextJS.svg",
+    text: "",
+    width: 150,
+    alt: "NextJS",
+  },
+];
+
 const Experience = () => {
   const isMobile = true;
   const isDesktop = false;
@@ -116,18 +155,9 @@ const Experience = () => {
           <Heading size={"md"}>Skills:</Heading>
           <br></br>
           <SimpleGrid columns={{ base: 2, md: 4 }}>
-            <SkillItem
-              imageSrc={`${router.basePath}/icons/easter-bunny.png`}
-              text={"bunny skill"}
-            ></SkillItem>
-            <SkillItem
-              imageSrc={`${router.basePath}/icons/easter-bunny.png`}
-              text={"bunny skill"}
-            ></SkillItem>
-            <SkillItem
-              imageSrc={`${router.basePath}/icons/easter-bunny.png`}
-              text={"bunny skill"}
-            ></SkillItem>
+            {skills.map((skill, index) => {
+              return <SkillItem {...skill} key={index}></SkillItem>;
+            })}
           </SimpleGrid>
         </CardBody>
       </Card>
@@ -269,7 +299,7 @@ const EmptyCard = () => {
   );
 };
 
-interface SkillItemProps extends FlexProps {
+interface SkillItemProps extends ImageProps {
   imageSrc: string;
   text: string;
 }
@@ -286,16 +316,20 @@ function SkillItem({ imageSrc, text, ...rest }: SkillItemProps) {
       borderRadius="lg"
       role="group"
       cursor="cursor"
-      {...rest}
     >
-      <Image
-        src={imageSrc}
-        alt={text}
-        width={10}
-        height={10}
-        marginRight={4}
-      ></Image>
-      <Text>{text}</Text>
+      <Flex marginX={"auto"} direction={"row"}>
+        <Image
+          src={imageSrc}
+          alt={text}
+          width={50}
+          height={50}
+          marginRight={4}
+          {...rest}
+        ></Image>
+        <Heading marginTop={3} size={"md"}>
+          {text}
+        </Heading>
+      </Flex>
     </Flex>
   );
 }
