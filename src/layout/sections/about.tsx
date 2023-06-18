@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   Container,
   Flex,
@@ -50,7 +49,6 @@ const Feature = ({ text, icon, iconBg, link }: FeatureProps) => {
         rounded={"lg"}
         marginLeft={{ base: 4, md: 1 }}
         marginRight={{ base: 4, md: 1 }}
-        _hover={{ bg: "hover", border: "2px solid hover" }}
       >
         <Flex
           w={8}
@@ -80,45 +78,18 @@ export default function About() {
         paddingRight={10}
         columns={{ base: 1, md: 2 }}
         spacingY={10}
-        spacingX={10}
         sx={itemStyle}
       >
         <Flex flexDirection={"row"} alignItems={"center"}>
-          <Box
+          <Image
             marginLeft={"auto"}
             marginRight={"auto"}
-            marginTop={-3}
-            marginBottom={10}
-            pos={"relative"}
-            height={"230px"}
-            _after={{
-              transition: "all .3s ease",
-              content: '""',
-              w: "full",
-              h: "full",
-              pos: "absolute",
-              top: 5,
-              left: 0,
-              backgroundImage: `${router.basePath}/images/me.png`,
-              filter: "blur(15px)",
-              zIndex: -1,
-            }}
-            _groupHover={{
-              _after: {
-                filter: "blur(20px)",
-              },
-            }}
-          >
-            <Image
-              marginLeft={"auto"}
-              marginRight={"auto"}
-              rounded={"md"}
-              alt={"feature image"}
-              src={`${router.basePath}/images/me.png`}
-              objectFit="cover"
-              maxW={{ base: "100%", sm: "200px" }}
-            />
-          </Box>
+            rounded={"md"}
+            alt={"feature image"}
+            src={`${router.basePath}/images/me.png`}
+            objectFit="cover"
+            maxW={{ base: "100%", sm: "200px" }}
+          />
         </Flex>
         <Stack spacing={4}>
           <Heading textAlign={{ base: "center", md: "left" }}>

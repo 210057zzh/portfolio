@@ -103,7 +103,7 @@ export default function ProjectItem({
             alt={name}
           />
         </Box>
-        <Stack pt={5} align={"center"}>
+        <Stack mt={5} align={"center"}>
           <Heading fontSize={"2xl"} fontFamily={"body"} fontWeight={500}>
             {name}
           </Heading>
