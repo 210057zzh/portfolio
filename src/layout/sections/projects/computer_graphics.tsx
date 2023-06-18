@@ -9,17 +9,16 @@ const projects: ProjectItemProps[] = [
     name: "bunny_engine",
     shortDescription:
       "Native Windows Game Engine Written in C++, built with DirectX11",
-    thumbnail: `/portfolio/images/me.png`,
+    thumbnail: `/portfolio/thumbnails/bunny_engine.gif`,
     description: "/portfolio/project_descriptions/bunny_engine.md",
     video: "https://www.youtube.com/embed/bQ4dePQef2M",
   },
   {
-    name: "bunny_engine",
-    shortDescription:
-      "Native Windows Game Engine Written in C++, built with DirectX11",
+    name: "Roller Coaster",
+    shortDescription: "Fun ride built on Splines!",
     thumbnail: `/portfolio/images/me.png`,
-    description: "/portfolio/project_descriptions/bunny_engine.md",
-    video: "https://www.youtube.com/embed/bQ4dePQef2M",
+    description: "/portfolio/project_descriptions/roller_coaster.md",
+    video: "https://www.youtube.com/embed/ZuboeBl-Kc8",
   },
 ];
 
