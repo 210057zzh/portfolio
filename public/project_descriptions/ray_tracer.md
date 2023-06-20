@@ -10,3 +10,8 @@
   ![Without Recursion](/portfolio/images/projects/ray_tracer/table_recursive.jpg)
 - *Multithreading*
 - *Ray vs. Sphere* and *Ray vs. Triangle*
+### Results
+- ![SIGGRAPH](/portfolio/images/projects/ray_tracer/SIGGRAPH.jpg)
+- ![Spheres](/portfolio/images/projects/ray_tracer/spheres.jpg)
+- ![Without Recursion](/portfolio/images/projects/ray_tracer/ball_recursive.jpg)
+- ![Without Recursion](/portfolio/images/projects/ray_tracer/table_recursive.jpg)
