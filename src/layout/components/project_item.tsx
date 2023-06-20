@@ -145,11 +145,16 @@ export default function ProjectItem({
             </ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <SimpleGrid column={1} spacing={10}>
+              <SimpleGrid column={1} spacing={5}>
                 {video && <LiteYouTubeEmbed id={video} title={name} />}
-                <ReactMarkdown components={ChakraUIRenderer()} skipHtml>
-                  {descriptionText}
-                </ReactMarkdown>
+                {images?.map((img, key) => {
+                  return <Image src={img} alt={img} key={key}></Image>;
+                })}
+                <Box marginX="10">
+                  <ReactMarkdown components={ChakraUIRenderer()} skipHtml>
+                    {descriptionText}
+                  </ReactMarkdown>
+                </Box>
               </SimpleGrid>
             </ModalBody>
 

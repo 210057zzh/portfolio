@@ -7,7 +7,7 @@ import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 const projects: ProjectItemProps[] = [
   {
     name: "bunny_engine",
-    shortDescription: "Native C++ Game Engine running DirectX 11",
+    shortDescription: "Game Engine running DirectX 11!",
     thumbnail: `/portfolio/thumbnails/bunny_engine.gif`,
     description: "/portfolio/project_descriptions/bunny_engine.md",
     video: "bQ4dePQef2M",
@@ -23,7 +23,7 @@ const projects: ProjectItemProps[] = [
     name: "Ray Tracer",
     shortDescription: "Good old ray tracing!",
     thumbnail: `/portfolio/thumbnails/mirror.jpg`,
-    description: "/portfolio/project_descriptions/roller_coaster.md",
+    description: "/portfolio/project_descriptions/ray_tracer.md",
   },
 ];
 
