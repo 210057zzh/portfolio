@@ -1,29 +1,28 @@
 import {
-  Card,
+  AspectRatio,
   Box,
+  Button,
+  Card,
   Center,
   Heading,
-  Text,
-  Stack,
   Image,
-  useDisclosure,
   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
   ModalBody,
+  ModalCloseButton,
+  ModalContent,
   ModalFooter,
-  Button,
+  ModalHeader,
+  ModalOverlay,
   SimpleGrid,
-  AspectRatio,
+  Stack,
+  Text,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { itemStyle } from "../id";
-import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
+import ColorThief from "colorthief";
 import { useEffect, useState } from "react";
-
-const IMAGE = "/portfolio/images/me.png";
+import ReactMarkdown from "react-markdown";
+import { itemStyle } from "../id";
 
 export interface ProjectItemProps {
   name: string;
@@ -45,16 +44,31 @@ export default function ProjectItem({
 }: ProjectItemProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [descriptionText, SetDescriptionText] = useState("");
+  const [bgText, SetBgText] = useState("");
+
   useEffect(() => {
     fetch(description)
       .then((r) => r.text())
       .then((text) => {
-        console.log(text);
         SetDescriptionText(text);
       })
       .catch((err) => {
         console.error(err);
       });
+    const colorThief = new ColorThief();
+    const img = document.getElementById(
+      `${name}-thumbnail`
+    ) as HTMLImageElement;
+
+    if (img?.complete) {
+      const c = colorThief.getColor(img);
+      SetBgText(`rgb(${c[0]},${c[1]},${c[2]})`);
+    } else if (img) {
+      img.addEventListener("load", function () {
+        const c = colorThief.getColor(img);
+        SetBgText(`rgb(${c[0]},${c[1]},${c[2]})`);
+      });
+    }
   }, []);
 
   return (
@@ -84,7 +98,8 @@ export default function ProjectItem({
             pos: "absolute",
             top: 5,
             left: 0,
-            backgroundImage: `url(${thumbnail})`,
+            bg: bgText,
+            // backgroundImage: `url(${thumbnail})`,
             filter: "blur(15px)",
             zIndex: -1,
           }}
@@ -95,6 +110,7 @@ export default function ProjectItem({
           }}
         >
           <Image
+            id={`${name}-thumbnail`}
             rounded={"md"}
             height={230}
             width={282}
