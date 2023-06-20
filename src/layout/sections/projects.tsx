@@ -1,8 +1,4 @@
-import {
-  Box,
-  SimpleGrid,
-  chakra
-} from "@chakra-ui/react";
+import { Box, SimpleGrid, chakra } from "@chakra-ui/react";
 import { projectsSectionId } from "../id";
 import ComputerGraphics from "./projects/computer_graphics";
 

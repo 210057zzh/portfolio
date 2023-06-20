@@ -10,14 +10,14 @@ const projects: ProjectItemProps[] = [
     shortDescription: "Native C++ Game Engine running DirectX 11",
     thumbnail: `/portfolio/thumbnails/bunny_engine.gif`,
     description: "/portfolio/project_descriptions/bunny_engine.md",
-    video: "https://www.youtube.com/embed/bQ4dePQef2M",
+    video: "bQ4dePQef2M",
   },
   {
     name: "Roller Coaster",
     shortDescription: "Fun ride built on Splines!",
     thumbnail: `/portfolio/thumbnails/roller_coaster.gif`,
     description: "/portfolio/project_descriptions/roller_coaster.md",
-    video: "https://www.youtube.com/embed/ZuboeBl-Kc8",
+    video: "ZuboeBl-Kc8",
   },
   {
     name: "Ray Tracer",

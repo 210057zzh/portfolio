@@ -23,6 +23,8 @@ import ColorThief from "colorthief";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { itemStyle } from "../id";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 export interface ProjectItemProps {
   name: string;
@@ -144,11 +146,7 @@ export default function ProjectItem({
             <ModalCloseButton />
             <ModalBody>
               <SimpleGrid column={1} spacing={10}>
-                {video && (
-                  <AspectRatio ratio={16 / 9}>
-                    <iframe title={name} src={video} allowFullScreen />
-                  </AspectRatio>
-                )}
+                {video && <LiteYouTubeEmbed id={video} title={name} />}
                 <ReactMarkdown components={ChakraUIRenderer()} skipHtml>
                   {descriptionText}
                 </ReactMarkdown>
