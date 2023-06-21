@@ -1,1 +1,2 @@
-a
+### Overview
+*Roller Coaster* is a personal project that simulates a roller coaster ride in OpenGL. It is able to read in a track file which enables track customization. The track is specified by multiple bezier spline and it's control points, and iterating through the spline is also implemented
