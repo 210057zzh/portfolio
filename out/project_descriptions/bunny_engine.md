@@ -4,6 +4,6 @@
 - *Rasterized Phong shading*
 - *Normal Map*
 - *Animation*
-- *Basic AABB Raycast Phisics*
-- *Deffered Rendering*
+- *Basic AABB Raycast Physics*
+- *Deferred Rendering*
 - *Bloom Filter*
