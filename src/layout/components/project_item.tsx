@@ -25,6 +25,7 @@ import ReactMarkdown from "react-markdown";
 import { itemStyle } from "../id";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import { TinyColor } from "@ctrl/tinycolor";
 
 const descriptionTheme = {
   img: (props: any) => {
@@ -72,13 +73,20 @@ export default function ProjectItem({
       `${name}-thumbnail`
     ) as HTMLImageElement;
 
+    const darken = (c: RGBColor) => {
+      return new TinyColor({ r: c[0], g: c[1], b: c[2] })
+        .darken(10)
+        .saturate(30)
+        .toRgbString();
+    };
+
     if (img?.complete) {
       const c = colorThief.getColor(img);
-      SetBgText(`rgb(${c[0]},${c[1]},${c[2]})`);
+      SetBgText(darken(c));
     } else if (img) {
       img.addEventListener("load", function () {
         const c = colorThief.getColor(img);
-        SetBgText(`rgb(${c[0]},${c[1]},${c[2]})`);
+        SetBgText(darken(c));
       });
     }
   }, []);
