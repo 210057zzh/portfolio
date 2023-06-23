@@ -19,18 +19,18 @@ import {
   ImageProps,
 } from "@chakra-ui/react";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
-import ColorThief from "colorthief";
+import ColorThief, { RGBColor } from "colorthief";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { itemStyle } from "../id";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
-const newTheme = {
+const descriptionTheme = {
   img: (props: any) => {
     let alt: string = props.alt;
     if (alt.toLowerCase().startsWith("covider")) {
-      return <Image {...props} maxWidth={"50%"} rounded={"3xl"}></Image>;
+      return <Image {...props} maxHeight={600} rounded={"3xl"}></Image>;
     }
     return <Image {...props}></Image>;
   },
@@ -162,7 +162,7 @@ export default function ProjectItem({
                 })}
                 <Box marginX="10">
                   <ReactMarkdown
-                    components={ChakraUIRenderer(newTheme)}
+                    components={ChakraUIRenderer(descriptionTheme)}
                     skipHtml
                   >
                     {descriptionText}
