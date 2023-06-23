@@ -8,22 +8,16 @@ const projects: ProjectItemProps[] = [
   {
     name: "Covider",
     shortDescription: "University wide COVID tracking!",
-    thumbnail: `/portfolio/thumbnails/bunny_engine.gif`,
+    thumbnail: `/portfolio/thumbnails/covider.png`,
     description: "/portfolio/project_descriptions/covider.md",
     video: "ynCIILtGV08",
   },
   {
     name: "Sprout",
     shortDescription: "Business Promotion for LA Locals!",
-    thumbnail: `/portfolio/thumbnails/roller_coaster.gif`,
+    thumbnail: `/portfolio/thumbnails/sprout.png`,
     description: "/portfolio/project_descriptions/sprout.md",
     video: "Jypp8e10xx8",
-  },
-  {
-    name: "Ray Tracer",
-    shortDescription: "Good old ray tracing!",
-    thumbnail: `/portfolio/thumbnails/mirror.jpg`,
-    description: "/portfolio/project_descriptions/ray_tracer.md",
   },
 ];
 
