@@ -22,7 +22,15 @@ import { experienceSectionId, itemStyle } from "../id";
 const milestones = [
   {
     id: 1,
-    date: "May 21, 2023 - Present",
+    date: "July 29, 2024 - Present",
+    title: "Software Engineer",
+    company: "Amazon Web Services",
+    companyLogoSrc: "amazon.svg",
+    descriptions: ["Working in the Transit Gateway Team"],
+  },
+  {
+    id: 2,
+    date: "May 21, 2023 - August 11, 2023",
     title: "Software Engineer Intern",
     company: "Amazon Luna",
     companyLogoSrc: "amazon.svg",
@@ -33,7 +41,7 @@ const milestones = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     date: "August 10, 2021 - May 12, 2023",
     title: "Teaching Assistant - CSCI 356 (Introduction to Computer Systems)",
     company: "University of Southern California",
@@ -44,7 +52,7 @@ const milestones = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     date: "May 10, 2021 - July 10, 2021",
     title:
       "Teaching Assistant - CSCI 104 (Data Structures and Object-Oriented Design)",
@@ -56,7 +64,7 @@ const milestones = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     date: "Jan 10, 2021 - May 10, 2021",
     title: "Teaching Assistant - CSCI 103 (Introduction to Programming)",
     company: "University of Southern California",

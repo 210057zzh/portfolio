@@ -113,7 +113,7 @@ export default function About() {
             text={"See Me on Github"}
           ></Feature>
           <Feature
-            link={"https://www.linkedin.com/in/zhiheng-david-zhang-02ba52151"}
+            link={"https://www.linkedin.com/in/zhiheng-zhang-02ba52151/"}
             icon={<Icon as={IoLogoLinkedin} w={5} h={5} />}
             iconBg={""}
             text={"See Me on LinkedIn"}
