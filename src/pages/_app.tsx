@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 // 1. Import the extendTheme function
 import Navbar from "@/layout/navbar";
 import Head from "next/head";
+import GoogleAnalytics from "@bradgarropy/next-google-analytics";
 
 // 2. Extend the theme to include custom colors, fonts, etc
 const colors = {
@@ -20,13 +21,16 @@ export const theme = extendTheme({ colors });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Head>
-        <link rel="shortcut icon" href="/portfolio/favicon.ico" />
-      </Head>
-      <Navbar>
-        <Component {...pageProps} />
-      </Navbar>
-    </ChakraProvider>
+    <>
+      <ChakraProvider theme={theme}>
+        <Head>
+          <link rel="shortcut icon" href="/portfolio/favicon.ico" />
+        </Head>
+        <Navbar>
+          <Component {...pageProps} />
+        </Navbar>
+      </ChakraProvider>
+      <GoogleAnalytics measurementId="G-ED9JPM3T60" />
+    </>
   );
 }
